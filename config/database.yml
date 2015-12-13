@@ -12,7 +12,3 @@ development:
 test:
   <<: *default
   database: noises3_test
-
-production:
-  <<: *default
-  database: noises3_production
