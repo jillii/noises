@@ -1,0 +1,16 @@
+<h1>Track <%= @mix.id %>
+<p>
+<%= @mix.name %>
+<% if !@mix.audio_file_url.nil? %>
+  <a href="<%= @mix.audio_file.url %>">listen</a>
+  <%= link_to 'download', download_mix_path(@mix)%>
+<% end %>
+<% if user_signed_in? %>
+  <% if @mix.user_id == current_user.id %>
+    <%= link_to 'delete', mix_path(@mix), method: :delete %>
+  <% end %>
+<% end %>
+
+
+</p>
+</h1>

@@ -1,0 +1,11 @@
+<h1>Upload track</h1>
+<br>
+<div id='well'>
+<!-- changed from @track to @user -->
+<%= form_for [@user, @mix], html: { multipart: true } do |f| %>
+
+  <%= f.text_field :name, placeholder: 'name' %>
+  <%= f.file_field :audio_file, placeholder: 'file' %>
+  <%= f.submit 'Upload', class: "btn btn-default" %>
+<% end %>
+</div>

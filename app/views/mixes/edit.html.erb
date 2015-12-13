@@ -1,0 +1,9 @@
+<h1>Edit</h1>
+<br>
+<div id='well'>
+<%= form_for [@user, @track], html: { multipart: true } do |f| %>
+  <%= f.text_field :name, placeholder: 'name' %>
+  <%= f.file_field :audio_file, placeholder: 'file' %>
+  <%= f.submit 'Replace', class: "btn btn-default" %>
+<% end %>
+</div>

@@ -1,0 +1,9 @@
+<h1>Upload mix for <%= @original_mix.name %></h1>
+<br>
+<div id='well'>
+<%= form_for [@original_mix, @mix], html: { multipart: true } do |f| %>
+  <%= f.text_field :name, placeholder: 'name' %>
+  <%= f.file_field :audio_file, placeholder: 'file' %>
+  <%= f.submit 'Upload', class: "btn btn-default" %>
+<% end %>
+</div>

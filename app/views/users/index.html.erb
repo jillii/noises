@@ -1,0 +1,10 @@
+<h1>Users
+<br>
+<% @users.each do |user| %>
+  <% if user == current_user %>
+    You
+  <% else %>
+    <%= user.name %>
+  <% end %>
+  <%= link_to user.mixes.size.to_s + ' mixes', user_mixes_path(user) %>
+<% end %>
