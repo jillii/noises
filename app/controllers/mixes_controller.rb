@@ -67,7 +67,7 @@ class MixesController < ApplicationController
     @mix.update(mix_id: @original_mix.id)
 
     if @mix.save
-      redirect_to root_path, notice: 'Mix uploaded. Mix id: #{mix.mix_id}.'
+      redirect_to root_path, notice: 'Mix uploaded.'
     else
       redirect_to new_mix_path(@original_mix), alert: 'Mix could not be uploaded.'
     end  
@@ -83,7 +83,7 @@ class MixesController < ApplicationController
     if @mix.update(mix_params)
       redirect_to track_mixes_path(Track.find(@mix.track_id)), notice: 'You updates a mix'
     else
-      redirect_to edit_track_mix_path(Track.find(@mix.track_id)), notice: 'mix could not be updated'
+      redirect_to edit_track_mix_path(Track.find(@mix.track_id)), notice: 'Mix could not be updated'
     end
   end
 

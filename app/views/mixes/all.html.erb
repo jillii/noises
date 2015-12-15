@@ -12,6 +12,7 @@
 
 <% @visited.each do |track, indent| %>
   <%= raw(('&nbsp') * indent) %>
+  <%= track.mix_id %>
   <% if track.name == '<file removed>' %>
     <%= track.name %>
     <br>
