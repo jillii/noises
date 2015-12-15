@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'mixes#all'
+  root to: 'welcome#hi'
 
   # custom controls for remixing existing track
   get 'mixes/:mix_id/mixes/new' => 'mixes#new_mix'

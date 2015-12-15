@@ -1,4 +1,9 @@
-<h1>Upload mix for <%= @original_mix.name %></h1>
+<h1>Upload mix for 
+<% if @original_mix.name != '' %>
+  <%= @original_mix.name %>
+<% else %> <!-- if the track exists but it's not named (name is an empty string) -->
+  <%= 'Track' + @original_mix.id.to_s %>
+<% end %>
 <br>
 <div id='well'>
 <%= form_for [@original_mix, @mix], html: { multipart: true } do |f| %>
