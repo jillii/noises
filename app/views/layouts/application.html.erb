@@ -29,7 +29,7 @@
       <b><%= link_to 'Upload', new_user_mix_path(current_user.id), :class => 'navbar-link' %>
     <% end %></b>
 
-    <%= link_to 'Noises!', root_path, :class => 'navbar-link' %>
+    <%= link_to 'Noises!', mixes_all_path, :class => 'navbar-link' %>
     <%= link_to 'Users', users_path, :class => 'navbar-link' %> 
 
     <% if user_signed_in? %>

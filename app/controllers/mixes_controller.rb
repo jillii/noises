@@ -42,7 +42,7 @@ class MixesController < ApplicationController
   	@mix.user_id = current_user.id
 
   	if @mix.save
-  		redirect_to root_path, notice: 'Track uploaded.'
+  		redirect_to mixes_all_path, notice: 'Track uploaded.'
   	else
   		redirect_to new_mix_path(@mix), alert: 'Track could not be uploaded'
       if @mix.errors.messages.any?
@@ -67,7 +67,7 @@ class MixesController < ApplicationController
     @mix.update(mix_id: @original_mix.id)
 
     if @mix.save
-      redirect_to root_path, notice: 'Mix uploaded.'
+      redirect_to mixes_all_path, notice: 'Mix uploaded.'
     else
       redirect_to new_mix_path(@original_mix), alert: 'Mix could not be uploaded.'
     end  
@@ -90,7 +90,7 @@ class MixesController < ApplicationController
   def destroy
     # reassign all children mixes to '<mix removed>' parent
     if Mix.find(params[:id]).update(name: '<file removed>', audio_file: nil)
-      redirect_to root_path, notice: "You've just deleted a mix"
+      redirect_to mixes_all_path, notice: "You've just deleted a mix"
     else
       redirect_to mix_path(mix), alert: 'Mix was not deleted!'
     end

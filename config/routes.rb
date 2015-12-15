@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'welcome#hi'
 
+  # main page
+  get 'mixes/all' => 'mixes#all'
+
   # custom controls for remixing existing track
   get 'mixes/:mix_id/mixes/new' => 'mixes#new_mix'
   post 'mixes/:mix_id/mixes' => 'mixes#create_mix'
