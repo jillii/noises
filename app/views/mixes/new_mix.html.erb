@@ -1,14 +1,20 @@
-<h1>Upload mix for 
-<% if @original_mix.name != '' %>
-  <%= @original_mix.name %>
-<% else %> <!-- if the track exists but it's not named (name is an empty string) -->
-  <%= 'Track' + @original_mix.id.to_s %>
-<% end %>
-<br>
-<div id='well'>
-<%= form_for [@original_mix, @mix], html: { multipart: true } do |f| %>
-  <%= f.text_field :name, placeholder: 'name' %>
-  <%= f.file_field :audio_file, placeholder: 'file' %>
-  <%= f.submit 'Upload', class: "btn btn-default" %>
-<% end %>
+<div class='left-form'>
+  <h1>Upload mix for 
+  <% if @original_mix.name != '' %>
+    <%= @original_mix.name %>
+  <% else %> <!-- if the track exists but it's not named (name is an empty string) -->
+    <%= 'Track' + @original_mix.id.to_s %>
+  <% end %></h1>
+  <br>
+  <div>
+    <%= form_for [@original_mix, @mix], html: { multipart: true } do |f| %>
+      <%= f.text_field :name, placeholder: 'name' %>
+      <%= f.text_field :tag_list, placeholder: 'tags (separated by commas)' %>
+      <p>
+      <%= f.file_field :audio_file %>
+      </p>
+      <br>
+      <%= f.submit 'Upload', class: "btn btn-default" %>
+    <% end %>
+  </div>
 </div>

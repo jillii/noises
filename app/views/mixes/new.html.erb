@@ -1,11 +1,16 @@
-<h1>Upload track</h1>
+<h1 style='text-align:center'>Upload new
 <br>
-<div id='well'>
-<!-- changed from @track to @user -->
-<%= form_for [@user, @mix], html: { multipart: true } do |f| %>
-
-  <%= f.text_field :name, placeholder: 'name' %>
-  <%= f.file_field :audio_file, placeholder: 'file' %>
-  <%= f.submit 'Upload', class: "btn btn-default" %>
-<% end %>
+<br>
+<div>
+  <!-- changed from @track to @user -->
+  <%= form_for [@user, @mix], html: { multipart: true } do |f| %>
+    <%= f.text_field :name, placeholder: 'name' %>
+    <br>
+    <%= f.text_field :tag_list, placeholder: 'tags (separated by commas)' %>
+    <br>
+    <%= f.file_field :audio_file %>
+    <br>
+    <%= f.submit 'Upload', class: "btn btn-default" %>
+  <% end %>
 </div>
+</h1>

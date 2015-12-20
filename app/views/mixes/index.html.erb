@@ -1,8 +1,13 @@
 <h1><% if @user == current_user %>
-  Your tracks
+  You (<%= @user.name %>)
 <% else %>
-  Look at all of <%= @user.name %>'s tracks
+  <%= @user.name %>
 <% end %>
+<p>
+  member since <div><%= @user.created_at %></div>
+</p>
+<p>
+  <%= mail_to 'email', @user.email %>
 <div class='container'>
 <% @mixes.each do |mix| %>
 <!-- view the track -->

@@ -1,16 +1,20 @@
+
+
 <h1>Track <%= @mix.id %>
 <p>
 <%= @mix.name %>
 <% if !@mix.audio_file_url.nil? %>
   <a href="<%= @mix.audio_file.url %>">listen</a>
-  <%= link_to 'download', download_mix_path(@mix)%>
+  <%= link_to 'download', download_mix_path(@mix) if user_signed_in? %>
 <% end %>
 <% if user_signed_in? %>
+  <%= link_to 'mix', new_mix_mix_path(@mix) %>
   <% if @mix.user_id == current_user.id %>
     <%= link_to 'delete', mix_path(@mix), method: :delete %>
   <% end %>
 <% end %>
-
+<br>
+<%= @mix.tag_list %>
 
 </p>
 </h1>

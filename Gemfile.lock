@@ -28,6 +28,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     arel (5.0.1.20140414130214)
     aws-sdk (2.2.5)
       aws-sdk-resources (= 2.2.5)
@@ -257,6 +259,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 3.4)
   aws-sdk (~> 2)
   bootstrap-sass (~> 2.3.2)
   byebug

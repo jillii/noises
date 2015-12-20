@@ -3,9 +3,9 @@ class MixesController < ApplicationController
 
   def all
     if params[:search]    # if comments are requested by subject
-      @mixes = Mix.search(params[:search]).order("created_at DESC")
+      @mixes = Mix.tagged_with("#{params[:search]}").order("created_at DESC")
     else # regular order
-      @mixes = Mix.all #order("created_at DESC")
+      @mixes = Mix.all.order("created_at DESC")
     end
 
     # hash to store tracks and their indentation level
@@ -40,6 +40,8 @@ class MixesController < ApplicationController
   def create
   	@mix = Mix.new(mix_params)
   	@mix.user_id = current_user.id
+
+    #@mix.tag_list.add(params[:tag_list])
 
   	if @mix.save
   		redirect_to mixes_all_path, notice: 'Track uploaded.'
@@ -101,7 +103,7 @@ class MixesController < ApplicationController
   end
 
   def mix_params
-  	params.require(:mix).permit(:name, :audio_file)
+  	params.require(:mix).permit(:name, :audio_file, :tag_list)
   end
 
   def download

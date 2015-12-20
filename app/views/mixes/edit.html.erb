@@ -4,6 +4,7 @@
 <%= form_for [@user, @track], html: { multipart: true } do |f| %>
   <%= f.text_field :name, placeholder: 'name' %>
   <%= f.file_field :audio_file, placeholder: 'file' %>
+  <%= f.text_field :tag, placeholder: 'tags (separated by commas)' %>
   <%= f.submit 'Replace', class: "btn btn-default" %>
 <% end %>
 </div>

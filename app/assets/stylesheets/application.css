@@ -16,5 +16,31 @@
  */
 
 body {
-	background-color: white;
+	padding-top: 10pt;
+	padding-right: 20pt;
+}
+
+.center-block {
+	padding: 10em;
+	text-align: center
+}
+
+.container {
+	padding-top: 30pt;
+}
+
+.left-form {
+	padding-top: 5em;
+	padding-left: 35em;
+	text-align: right
+}
+
+.enter-noises {
+	padding: 10pt;
+}
+
+
+.btn:hover {
+  background: #9baeba;
+  text-decoration: none;
 }

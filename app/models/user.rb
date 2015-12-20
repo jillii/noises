@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
 
   has_many :tracks
   has_many :mixes
+
+  # validators
+  validates :name, presence: true, uniqueness: {case_sensitive: false}
+
+  # search function
+  def self.search(query)
+    where(['lower(name) like ?', "%#{query.downcase}%"])
+  end
 end
