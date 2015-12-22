@@ -34,6 +34,7 @@ gem 'aws-sdk', '~> 2'
 # gem 'ffi', '1.0.11'
 # Fix layout
 gem 'bootstrap-sass', '~> 2.3.2'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 # Use Capistrano for deployment
