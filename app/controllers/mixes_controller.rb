@@ -83,9 +83,9 @@ class MixesController < ApplicationController
     @mix = mix.find(params[:id])
 
     if @mix.update(mix_params)
-      redirect_to track_mixes_path(Track.find(@mix.track_id)), notice: 'You updates a mix'
+      redirect_to mix_mixes_path(Mix.find(@mix.mix_id)), notice: 'You updates a mix'
     else
-      redirect_to edit_track_mix_path(Track.find(@mix.track_id)), notice: 'Mix could not be updated'
+      redirect_to edit_mix_mix_path(Mix.find(@mix.mix_id)), notice: 'Mix could not be updated'
     end
   end
 
