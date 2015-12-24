@@ -6,6 +6,12 @@ class Mix < ActiveRecord::Base
   mount_uploader :audio_file, AudioFileUploader
   # allow tagging
   acts_as_taggable # Alias for acts_as_taggable_on :tags
+  ActsAsTaggableOn.remove_unused_tags = true
+  ActsAsTaggableOn.force_lowercase = true
   # validators
   validates :audio_file, presence: { message: "You forgot an attachment." }
+  # search
+	def self.search(search)
+	  where("lower(name) LIKE ? ", "%#{search.downcase}%")
+	end
 end

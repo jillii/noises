@@ -2,20 +2,32 @@ class MixesController < ApplicationController
   before_filter :authenticate_user!, except: [:all, :show, :index, :download]
 
   def all
-    if params[:search]    # if mixes are requested by tags
-      @mixes = Mix.tagged_with("#{params[:search]}").sort #sort alphabetically
-      @visited = Hash.new
+    @visited = Hash.new 
+    if params[:search]  
+      @search = params[:search]  
+      #search by name
+      @mixes = Mix.search(@search)
+
+      # add tracks with tags that match query
+      @tag_matches = Mix.tagged_with(@search)
+
+      # sort alphabetically
+      @mixes.sort 
+      @tag_matches.sort
+      # add to hash
       @mixes.each do |track|
         @visited[track] = 0
+      end
+      @tag_matches.each do |track|
+        @visited[track] = 4 # indent the tag matches 4 times
       end
     else # regular order
       @mixes = Mix.all.sort
       # hash to store tracks and their indentation level
-      @visited = Hash.new 
       @mixes.each do |mix|
         if !mix.mix_id   # meaning it's an original mix
           indent = 0  
-          mix_array = DFS(mix, indent, @visited)
+          DFS(mix, indent, @visited)
         end
       end
     end
