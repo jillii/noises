@@ -19,3 +19,10 @@
   </div>
   </h1>
 </div>
+<br>
+<div style='text-align:right'>
+<h1>Most popular tags:</h1>
+<% ActsAsTaggableOn::Tag.most_used.each do |tag| %>
+  <%= tag.name %>
+<% end %>
+</div>

@@ -82,7 +82,7 @@ class MixesController < ApplicationController
   def update
     @mix = Mix.find(params[:id])
     # gets current tags
-    @tags = @mix.tag_list
+    @tags = ActsAsTaggableOn::Tag.most_used
     # add tags to current
     @mix.tag_list.add(params[:tag_list])
 

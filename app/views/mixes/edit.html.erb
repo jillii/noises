@@ -1,11 +1,18 @@
-<h1>Edit</h1>
+<h1>Edit</h1>Update any field you would like to change.
+<br>
 <br>
 <div id='well'>
 <%= form_for [@user, @mix], html: { multipart: true } do |f| %>
   <%= f.text_field :name, placeholder: 'name' %>
+  <br>
   <%= f.file_field :audio_file, placeholder: 'file' %>
   <br>
-  <%= f.text_field :tag_list, :value => @mix.tag_list, placeholder: 'tags (separated by commas)' %>
-  <%= f.submit 'Replace', class: "btn btn-default" %>
+  <%= f.text_area :tag_list, :value => @mix.tag_list, placeholder: 'tags (separated by commas)', rows: "8" %>
+  <br>
+  <%= f.submit 'Update', class: "btn btn-default" %>
 <% end %>
 </div>
+<h1>Most popular tags:</h1>
+<% ActsAsTaggableOn::Tag.most_used.each do |tag| %>
+  <%= tag.name %>
+<% end %>

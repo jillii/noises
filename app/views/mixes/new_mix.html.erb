@@ -18,3 +18,9 @@
     <% end %>
   </div>
 </div>
+<div style='text-align:left'>
+<h1>Most popular tags:</h1>
+<% ActsAsTaggableOn::Tag.most_used.each do |tag| %>
+  <%= tag.name %>
+<% end %>
+</div>
