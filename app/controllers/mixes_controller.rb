@@ -1,19 +1,25 @@
 class MixesController < ApplicationController
-  before_filter :authenticate_user!, except: [:all, :show, :download]
+  before_filter :authenticate_user!, except: [:all, :show, :index, :download]
 
-  def all
-    if params[:search]    # if comments are requested by subject
+  def all(tags=nil)
+    if params[:search]    # if mixes are requested by tags
       @mixes = Mix.tagged_with("#{params[:search]}").sort #sort alphabetically
+      
+      @visited = Hash.new
+      @mixes.each do |track|
+        @visited[track] = 0
+      end
+    elsif params[:tag_list] != nil
+      @mixes = Mix.tagged_with(params[:tag_list]).sort
     else # regular order
       @mixes = Mix.all.sort
-    end
-
-    # hash to store tracks and their indentation level
-    @visited = Hash.new 
-    @mixes.each do |mix|
-      if !mix.mix_id   # meaning it's an original mix
-        indent = 0  
-        mix_array = DFS(mix, indent, @visited)
+      # hash to store tracks and their indentation level
+      @visited = Hash.new 
+      @mixes.each do |mix|
+        if !mix.mix_id   # meaning it's an original mix
+          indent = 0  
+          mix_array = DFS(mix, indent, @visited)
+        end
       end
     end
   end
@@ -25,7 +31,7 @@ class MixesController < ApplicationController
       DFS(remix, indent + 4, visited) # add 4 to each indent
     end
     visited
-  end  
+  end
 
   def index
     @user = User.find(params[:user_id])
