@@ -15,9 +15,20 @@
  *= require_self
  */
 
+ /*font-family: 'Fira Mono', ;*/
+ /*font-family: 'VT323', ;*/
+ /*font-family: 'Rajdhani', sans-serif;*/
+ /*font-family: 'Roboto Mono', ;*/
+ /*font-family: 'Timmana', sans-serif;*/
+
 body {
 	padding-top: 10pt;
 	padding-right: 20pt;
+}
+
+h1 a:hover {
+  background-color: #ccff33;
+  text-decoration: none
 }
 
 .center-block {
@@ -39,8 +50,13 @@ body {
 	padding: 10pt;
 }
 
+.btn btn-default {
+  background: #ff0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  }
 
 .btn:hover {
-  background: #9baeba;
   text-decoration: none;
 }

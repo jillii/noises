@@ -1,6 +1,6 @@
 
 
-<h1>Track <%= @mix.id %>
+<h1>
 <p>
 <%= @mix.name %>
 <% if !@mix.audio_file_url.nil? %>
@@ -15,6 +15,7 @@
 <% end %>
 <br>
 <%= @mix.tag_list %>
-
+<br>
+<%= link_to User.find(@mix.user_id).name, user_mixes_path(User.find(@mix.user_id)) %>
 </p>
 </h1>
