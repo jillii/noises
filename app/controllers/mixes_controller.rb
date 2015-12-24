@@ -1,7 +1,7 @@
 class MixesController < ApplicationController
   before_filter :authenticate_user!, except: [:all, :show, :index, :download]
 
-  def all(tags=nil)
+  def all
     if params[:search]    # if mixes are requested by tags
       @mixes = Mix.tagged_with("#{params[:search]}").sort #sort alphabetically
       
