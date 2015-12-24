@@ -9,7 +9,9 @@
     </div>
   <% end %>
 </p>
-<h1>Instructions: find a track you like, listen to it, download it, upload a remix of it. </h1>
+<% if !params[:search] %>
+  <h1>Instructions: find a track you like, listen to it, download it, upload a remix of it. </h1>
+<% end %>
 
 <br>
 <h1 class='form'>
