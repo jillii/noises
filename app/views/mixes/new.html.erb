@@ -1,16 +1,21 @@
-<h1 style='text-align:center'>Upload new
-<br>
-<br>
-<div>
-  <!-- changed from @track to @user -->
-  <%= form_for [@user, @mix], html: { multipart: true } do |f| %>
-    <%= f.text_field :name, placeholder: 'name' %>
-    <br>
-    <%= f.text_field :tag_list, placeholder: 'tags (separated by commas)' %>
-    <br>
-    <%= f.file_field :audio_file %>
-    <br>
-    <%= f.submit 'Upload', class: "btn btn-default" %>
-  <% end %>
+<div style='text-align:center'>
+  <h1>Upload new</h1>
+  <br>
+  <br>
+  <div>
+    <!-- changed from @track to @user -->
+    <%= form_for [@user, @mix], html: { multipart: true } do |f| %>
+      <%= f.text_field :name, placeholder: 'name' %>
+      <br>
+      <%= f.text_field :tag_list, placeholder: 'tags (separated by commas)' %>
+      <br>
+      <%= f.file_field :audio_file %>
+      <br>
+  please adhere to copyright laws.
+      <br>
+      <br>
+      <%= f.submit 'Upload', class: "btn btn-default" %>
+    <% end %>
+  </div>
+  </h1>
 </div>
-</h1>

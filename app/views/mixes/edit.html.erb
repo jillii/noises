@@ -1,10 +1,11 @@
 <h1>Edit</h1>
 <br>
 <div id='well'>
-<%= form_for [@user, @track], html: { multipart: true } do |f| %>
+<%= form_for [@user, @mix], html: { multipart: true } do |f| %>
   <%= f.text_field :name, placeholder: 'name' %>
   <%= f.file_field :audio_file, placeholder: 'file' %>
-  <%= f.text_field :tag, placeholder: 'tags (separated by commas)' %>
+  <br>
+  <%= f.text_field :tag_list, :value => @mix.tag_list, placeholder: 'tags (separated by commas)' %>
   <%= f.submit 'Replace', class: "btn btn-default" %>
 <% end %>
 </div>

@@ -3,9 +3,9 @@ class MixesController < ApplicationController
 
   def all
     if params[:search]    # if comments are requested by subject
-      @mixes = Mix.tagged_with("#{params[:search]}").order("created_at DESC")
+      @mixes = Mix.tagged_with("#{params[:search]}").sort #sort alphabetically
     else # regular order
-      @mixes = Mix.all.order("created_at DESC")
+      @mixes = Mix.all.sort
     end
 
     # hash to store tracks and their indentation level
@@ -80,12 +80,16 @@ class MixesController < ApplicationController
   end
 
   def update
-    @mix = mix.find(params[:id])
+    @mix = Mix.find(params[:id])
+    # gets current tags
+    @tags = @mix.tag_list
+    # add tags to current
+    @mix.tag_list.add(params[:tag_list])
 
     if @mix.update(mix_params)
-      redirect_to mix_mixes_path(Mix.find(@mix.mix_id)), notice: 'You updates a mix'
+      redirect_to mix_path(@mix), notice: 'You updates a mix'
     else
-      redirect_to edit_mix_mix_path(Mix.find(@mix.mix_id)), notice: 'Mix could not be updated'
+      redirect_to edit_mix_path(@mix), notice: 'Mix could not be updated'
     end
   end
 

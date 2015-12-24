@@ -26,6 +26,10 @@ body {
 	padding-right: 20pt;
 }
 
+h1 a {
+	/*color: gray;*/
+}
+
 h1 a:hover {
   background-color: #ccff33;
   text-decoration: none
