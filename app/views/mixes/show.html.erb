@@ -15,7 +15,9 @@
   <% end %>
 <% end %>
 <br>
-<%= @mix.tag_list %>
+<% @mix.tag_list.to_s.split(',').each do |tag| %>
+  <%= link_to tag, mixes_all_path(search: tag) %>
+<% end %>
 <br>
 <%= link_to User.find(@mix.user_id).name, user_mixes_path(User.find(@mix.user_id)) %>
 </p>
