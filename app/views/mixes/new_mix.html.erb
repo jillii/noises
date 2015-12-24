@@ -19,8 +19,8 @@
   </div>
 </div>
 <div style='text-align:left'>
-<h1>Most popular tags:</h1>
+<h1>Most popular tags:<br>
 <% ActsAsTaggableOn::Tag.most_used.each do |tag| %>
-  <%= tag.name %>
+  <%= link_to tag.name, mixes_all_path(search: tag.name) %>
 <% end %>
 </div>

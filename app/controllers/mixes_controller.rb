@@ -4,19 +4,9 @@ class MixesController < ApplicationController
   def all
     if params[:search]    # if mixes are requested by tags
       @mixes = Mix.tagged_with("#{params[:search]}").sort #sort alphabetically
-      
       @visited = Hash.new
       @mixes.each do |track|
         @visited[track] = 0
-      end
-    elsif params[:tag_list]
-      @mixes = Mix.tagged_with(params[:tag_list]).sort
-      @visited = Hash.new 
-      @mixes.each do |mix|
-        if !mix.mix_id   # meaning it's an original mix
-          indent = 0  
-          mix_array = DFS(mix, indent, @visited)
-        end
       end
     else # regular order
       @mixes = Mix.all.sort
