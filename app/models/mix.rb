@@ -10,7 +10,7 @@ class Mix < ActiveRecord::Base
   ActsAsTaggableOn.force_lowercase = true
   # validators
   validates :audio_file, presence: { message: "You forgot an attachment." }
-  # search
+  # search by names
 	def self.search(search)
 	  where("lower(name) LIKE ? ", "%#{search.downcase}%")
 	end
