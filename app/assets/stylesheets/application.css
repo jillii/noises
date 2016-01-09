@@ -32,6 +32,7 @@ h1 a {
 
 h1 a:hover {
   text-decoration: line-through;
+  color: #333;
 }
 
 .center-block {
