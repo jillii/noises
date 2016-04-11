@@ -22,8 +22,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
-gem 'devise', '3.5.2'
 # File storage
 gem 'carrierwave', '~> 0.10.0'
 gem 'fog', '1.34.0'
@@ -34,6 +32,11 @@ gem 'aws-sdk', '~> 2'
 # gem 'ffi', '1.0.11'
 # Fix layout
 gem 'bootstrap-sass', '~> 2.3.2'
+
+# User authentication. (Jillian's the only user though.)
+gem 'devise', '3.5.2'
+# Restrict file size
+gem 'file_validators'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -50,8 +53,6 @@ gem 'bootstrap-sass', '~> 2.3.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'net-ssh'
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring', '1.4.4'
 
 gem 'rails_12factor', '0.0.3', group: :production
 
