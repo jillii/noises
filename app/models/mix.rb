@@ -4,6 +4,8 @@ class Mix < ActiveRecord::Base
   belongs_to :mix
   has_many :mixes
   mount_uploader :audio_file, AudioFileUploader
+  validates :audio_file, file_size: { less_than: 2.gigabytes }
+
   # allow tagging
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   ActsAsTaggableOn.remove_unused_tags = true
