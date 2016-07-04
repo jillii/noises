@@ -22,8 +22,6 @@
     <% @visited.each do |track, indent| %>
       <%= raw(('&nbsp') * indent) %>
       <% if track.name == '<file removed>' %>
-        <%= track.name %>
-        <br>
         <% next %> <!-- skip to the next iteration -->
       <% elsif track.name != '' %>
         <%= link_to track.name, mix_path(track) %>
