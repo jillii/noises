@@ -3,6 +3,7 @@ class Mix < ActiveRecord::Base
   belongs_to :user
   belongs_to :mix
   has_many :mixes
+  has_many :notifications
   mount_uploader :audio_file, AudioFileUploader
   validates :audio_file, file_size: { less_than: 2.gigabytes }
 

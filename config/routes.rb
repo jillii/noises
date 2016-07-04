@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :mixes
+    resources :notifications
   end
   
   resources :mixes do
@@ -24,4 +25,5 @@ Rails.application.routes.draw do
   resources :mixes do
     member { get :download }
   end
+
 end

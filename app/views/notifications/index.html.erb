@@ -1,0 +1,11 @@
+<% if !@notifications.empty? %>
+  <% @notifications.each do |notification| %>
+    <div class="notification">
+      <%= notification %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="notification">
+    You have no notifications
+  </div>
+<% end %>

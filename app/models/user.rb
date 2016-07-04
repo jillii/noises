@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :mixes
+  has_many :notifications
 
   # validators
   validates :name, presence: true, uniqueness: {case_sensitive: false}
