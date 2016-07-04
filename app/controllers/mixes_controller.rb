@@ -102,18 +102,27 @@ class MixesController < ApplicationController
     @mix.tag_list.add(params[:tag_list])
 
     if @mix.update(mix_params)
-      redirect_to mix_path(@mix), notice: 'You updates a mix'
+      redirect_to mix_path(@mix), notice: 'You\'ve updated a mix'
     else
       redirect_to edit_mix_path(@mix), notice: 'Mix could not be updated'
     end
   end
 
   def destroy
-    # reassign all children mixes to '<mix removed>' parent
-    if Mix.find(params[:id]).update(name: '<file removed>', audio_file: nil)
-      redirect_to mixes_all_path, notice: "You've just deleted a mix"
+    track = Mix.find(params[:id])
+
+    track.mixes.each do |remix|
+      if track.mix_id
+        Mix.update(remix.id, :mix_id => track.mix_id)
+      else
+        remix.update_attribute(:mix_id, nil)
+      end
+    end
+
+    if track.destroy
+      redirect_to mixes_all_path, notice: 'You\'ve just deleted a mix.'
     else
-      redirect_to mix_path(mix), alert: 'Mix was not deleted!'
+      redirect_to mix_mix_path(track), alert: 'Unable to delete mix.'
     end
   end
 

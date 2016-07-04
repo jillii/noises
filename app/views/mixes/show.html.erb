@@ -1,24 +1,22 @@
-
-
 <h1>
-<p>
-<%= @mix.name %>
-<% if !@mix.audio_file_url.nil? %>
-  <a href="<%= @mix.audio_file.url %>">listen</a>
-<% end %>
-<% if user_signed_in? %>
-  <%= link_to 'download', download_mix_path(@mix) if user_signed_in? %>
-  <%= link_to 'mix', new_mix_mix_path(@mix) %>
-  <% if @mix.user_id == current_user.id %>
-    <%= link_to 'edit', edit_mix_path(@mix) %>
-    <%= link_to 'delete', mix_path(@mix), method: :delete %>
+  <p>
+  <%= @mix.name %>
+  <% if !@mix.audio_file_url.nil? %>
+    <a href="<%= @mix.audio_file.url %>">listen</a>
   <% end %>
-<% end %>
-<br>
-<% @mix.tag_list.to_s.split(',').each do |tag| %>
-  <%= link_to tag, mixes_all_path(search: tag) %>
-<% end %>
-<br>
-<%= link_to User.find(@mix.user_id).name, user_mixes_path(User.find(@mix.user_id)) %>
-</p>
+  <% if user_signed_in? %>
+    <%= link_to 'download', download_mix_path(@mix) if user_signed_in? %>
+    <%= link_to 'mix', new_mix_mix_path(@mix) %>
+    <% if @mix.user_id == current_user.id %>
+      <%= link_to 'edit', edit_mix_path(@mix) %>
+      <%= button_to 'delete', mix_path(@mix), method: :delete %>
+    <% end %>
+  <% end %>
+  <br>
+  <% @mix.tag_list.to_s.split(',').each do |tag| %>
+    <%= link_to tag, mixes_all_path(search: tag) %>
+  <% end %>
+  <br>
+  <%= link_to User.find(@mix.user_id).name, user_mixes_path(User.find(@mix.user_id)) %>
+  </p>
 </h1>
