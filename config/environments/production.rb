@@ -84,7 +84,7 @@ Rails.application.configure do
   # SMTP settings for gmail
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries  = true
-  config.action_mailer.default_url_options = { :host => "http://localhost:3000/" }
+  config.action_mailer.default_url_options = { :host => "http://noises.herokuapp.com" }
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
