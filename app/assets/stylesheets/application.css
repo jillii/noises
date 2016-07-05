@@ -22,22 +22,10 @@
  /*font-family: 'Timmana', sans-serif;*/
 
  h1 {
- 	margin: 20px;
+ 	margin: 6px;
+ 	font-size: 32px;
+ 	overflow: hidden;
  }
-
-.mixes {
-	padding-top: 10pt;
-	padding-right: 20pt;
-}
-
-.pull-right {
-	margin-right: 10px;
-	margin-top: 20px
-}
-
-.alert {
-	margin-bottom: 0;
-}
 
 h1 a {
 	color: #333;
@@ -48,25 +36,68 @@ h1 a:hover {
   color: #333;
 }
 
-.center-block {
-	padding: 10em;
-	text-align: center
+.mixes {
+	padding-top: 10pt;
+	padding-right: 20pt;
 }
 
-.container {
-	padding-top: 30pt;
+.notification {
+	line-height: 50px;
+}
+
+ul.notification li a {
+	display: block;
+	border-bottom: 2px transparent solid;
+	line-height: 50px;
+}
+
+.notification:hover {
+	background-color: #fbfbfb;
+	text-decoration: none;
+}
+ul.notification li a:hover {
+	text-decoration: none;
+}
+.notification__content {
+	padding-left: 30px;
+	color: black;
+}
+.unread {
+	background-color: #f2f2f2;
+}
+.unread:hover {
+	background-color: #fbfbfb;
+}
+
+.pull-right {
+	margin-right: 10px;
+	margin-top: 20px;
+}
+
+.alert {
+	margin-bottom: 0;
+}
+
+
+.center-block {
+	padding: 10em;
+	text-align: center;
 }
 
 .left-form {
 	padding-top: 5em;
 	padding-left: 35em;
-	text-align: right
+	text-align: right;
 }
 
 .enter-noises {
 	padding: 10pt;
 }
 
+.container {
+	padding-top: 50pt;
+	width: 90%;
+}
 .btn btn-default {
   background: #ff0;
   -webkit-border-radius: 0;
