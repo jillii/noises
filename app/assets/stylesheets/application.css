@@ -98,7 +98,7 @@ ul.notification li a:hover {
 	padding-top: 50pt;
 	width: 90%;
 }
-.btn btn-default {
+.btn .btn-default {
   background: #ff0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
