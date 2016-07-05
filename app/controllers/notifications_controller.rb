@@ -1,5 +1,5 @@
 class NotificationsController < ApplicationController
   def index
-  	@notifications = Notification.select { |user_id| Notifiactions.user_id == current_user }
+  	@notifications = Notification.all.select { |x| x.user_id == current_user.id }
   end
 end

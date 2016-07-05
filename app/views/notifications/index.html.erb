@@ -1,8 +1,14 @@
 <% if !@notifications.empty? %>
   <% @notifications.each do |notification| %>
-    <div class="notification">
-      <%= notification %>
-    </div>
+    <%= link_to mix_mix_path(Mix.find(notification.mix_id), notification.mix_id) do %>
+      <div class="notification">
+        <div <% if notification.state == 1 %>class="unread"<% end %>>
+          <div class="notification__content">
+            <%= Mix.find(notification.mix_id).name %> has a new remix!
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 <% else %>
   <div class="notification">

@@ -84,6 +84,7 @@ class MixesController < ApplicationController
     @mix.update(mix_id: @original_mix.id)
 
     if @mix.save
+      Notification.create(user_id: @original_mix.user_id, mix_id: @original_mix.id, state: 0) # Create notification for creator of original mix
       redirect_to mixes_all_path, notice: 'Mix uploaded.'
     else
       redirect_to new_mix_path(@original_mix), alert: 'Mix could not be uploaded.'
@@ -118,6 +119,8 @@ class MixesController < ApplicationController
         remix.update_attribute(:mix_id, nil)
       end
     end
+    # and destroy all notifications with this mix_id
+    Notification.destroy_all(mix_id: track.id)
 
     if track.destroy
       redirect_to mixes_all_path, notice: 'You\'ve just deleted a mix.'
@@ -128,6 +131,13 @@ class MixesController < ApplicationController
 
   def show
   	@mix = Mix.find(params[:id])
+    # remove any notifications about this mix -->
+    if current_user.id == @mix.user_id
+      @mix.notifications.each do |notification|
+        Notification.update(notification, state: 1) # mark all notifications as read
+      end
+    end
+    @mixes = @mix.mixes
   end
 
   def mix_params
