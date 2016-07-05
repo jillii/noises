@@ -1,6 +1,9 @@
 <h1>
   <p>
   <%= @mix.name %>
+  <br>
+  Uploaded <%= @mix.created_at %>
+  <br>
   <% if !@mix.audio_file_url.nil? %>
     <a href="<%= @mix.audio_file.url %>">listen</a>
   <% end %>
