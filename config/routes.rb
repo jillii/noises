@@ -25,5 +25,8 @@ Rails.application.routes.draw do
   resources :mixes do
     member { get :download }
   end
+  # mailer
+  resources :contacts, only: [:index, :new, :create]
+
 
 end
