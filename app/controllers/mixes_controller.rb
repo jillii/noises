@@ -1,5 +1,5 @@
 class MixesController < ApplicationController
-  before_filter :authenticate_user!, except: [:all, :show, :index, :download]
+  before_filter :authenticate_user!, except: [:all, :index, :download]
 
   def all
     @visited = Hash.new 
