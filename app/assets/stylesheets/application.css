@@ -24,7 +24,6 @@
  h1 {
  	margin: 6px;
  	font-size: 32px;
- 	overflow: hidden;
  }
 
 h1 a {
@@ -35,12 +34,27 @@ h1 a:hover {
   text-decoration: line-through;
   color: #333;
 }
-
+.mix a {
+	line-height: 44px;
+	/*border-bottom: 2px #333 solid;*/
+	padding: 13px 0;
+}
+.track-name {
+	border-left: 2px #333 solid;
+	border-bottom: 2px #333 solid;
+	padding-left: 2px;
+}
 .mixes {
 	padding-top: 10pt;
 	padding-right: 20pt;
 }
-
+input#contact_subject,
+textarea#contact_body {
+	width: 260px;
+	padding: 4px;
+	font-size: 14px;
+	margin: 4px 6px;
+}
 .notification {
 	line-height: 50px;
 }
@@ -54,6 +68,7 @@ ul.notification li a {
 .notification:hover {
 	background-color: #fbfbfb;
 	text-decoration: none;
+	border-left: 2px #333 solid;
 }
 ul.notification li a:hover {
 	text-decoration: none;
@@ -97,14 +112,30 @@ ul.notification li a:hover {
 .container {
 	padding-top: 50pt;
 	width: 90%;
+	margin: 0 2.2em;
 }
 .btn .btn-default {
   background: #ff0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0px;
-  }
+}
+button.btn, input[type="submit"].btn {
+  margin: 6px;
+}
 
 .btn:hover {
   text-decoration: none;
 }
+audio {
+	background-color: white !important;
+	width: 47px;
+	background-image: none !important; 
+	background: white !important;
+	z-index: -1 !important;
+}
+button {
+	z-index: 10;
+	background: white;
+}
+

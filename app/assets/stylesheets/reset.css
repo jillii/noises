@@ -1,0 +1,110 @@
+html, body, textarea, .container, div, input, span, h1, h2, a, img, tt, var, b, u, i, ol, ul, li, fieldset, form, table, caption, tbody, tfoot, thead, tr, th, td {margin:0; padding:0; border:1; outline:0; font-size:100%; vertical-align:baseline; background:transparent;} div {padding-left: 0 !important;} body {line-height: 1;}ol, ul{list-style:none;} blockquote, q{quotes:none;} blockquote:before, blockquote:after, q:before, q:after{content:'';content:none;} :focus{outline:0;} ins{text-decoration:none;} del{text-decoration:line-through;} table{border-collapse:collapse; border-spacing:0;}
+#menu-icon {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: url(menu-icon.png);
+  background-size: 100%;
+}
+a:hover#menu-icon {
+  background-color: #444;
+  border-radius: 1px 4px 0 0;
+}
+
+/*smaller port width*/
+@media only screen and (max-width : 840px) {
+  h1.form {
+    font-size: 27px;
+  }
+}
+@media only screen and (max-width : 750px) {
+  span.desktop-display {
+    display: none;
+  }
+}
+@media only screen and (max-width : 618px) {
+  h1.form {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width : 480px) {
+  html, 
+  body, 
+  form, 
+  .container {
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  /*hide navbar in menu icon*/
+  #menu-icon {
+    display:inline-block;
+  }
+  span.user-info {
+    display: none;
+  }
+  .navbar .nav {
+    position: absolute;
+  }
+  nav ul, nav:active ul { 
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #444;
+    width: 120px;
+    border-radius: 1px 0 4px 4px;
+  }
+  nav li {
+    text-align: center;
+    width: 100%;
+    padding: 8px 0;
+    margin: 0;
+  }
+  nav li:hover {
+    border-left: 2px #333 solid;
+    background-color: #fbfbfb;
+  }
+  nav:hover ul {
+    display: block;
+  }
+  #user_remember_me {
+    position: fixed;
+    margin-left: -60px;
+  }
+  input, 
+  textarea, 
+  input#contact_subject, 
+  input#contact_name, 
+  input#conact_email, 
+  textarea#contact_body,
+	.btn {
+		margin: 4px 0 !important;
+		width: 100% !important;
+		display: block;
+    padding: 0;
+    line-height: 24px;
+	}
+  button.btn, input[type="submit"].btn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+	button.btn, input[type="search"].btn {
+    width: 30% !important;
+	}
+
+  h1.form {
+    font-size: 14px !important;
+    line-height: 16px !important;
+  }
+  audio.button {
+    resize: 12px 12px;
+  }
+  .center-block {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .left-form {
+    padding-left: 0 !important;
+  }
+}

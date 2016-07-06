@@ -1,12 +1,12 @@
 <h1>
   <p>
   <%= @mix.name %>
+  <% if !@mix.audio_file_url.nil? %>
+    <%= audio_tag(@mix.audio_file_url, controls: true, class: 'button') %>
+  <% end %>
   <br>
   Uploaded <%= @mix.created_at %>
   <br>
-  <% if !@mix.audio_file_url.nil? %>
-    <a href="<%= @mix.audio_file.url %>">listen</a>
-  <% end %>
   <% if user_signed_in? %>
     <%= link_to 'download', download_mix_path(@mix) if user_signed_in? %>
     <%= link_to 'mix', new_mix_mix_path(@mix) %>
@@ -27,12 +27,13 @@
 <% if !@mix.mixes.empty? %>
   <div class="remixes">
     <br>
+    <br>
     Remixes:
+    <br>
     <br>
     <% @mixes.each do |mix| %>
       <% if !mix.audio_file_url.nil? %>
-      <%= link_to mix.name, mix_path(mix) %>
-        <a href="<%= @mix.audio_file.url %>">listen</a>
+        <%= link_to mix.name, mix_path(mix) %>
       <% end %>
       <% if user_signed_in? %>
         <%= link_to 'download', download_mix_path(mix) if user_signed_in? %>
@@ -46,6 +47,7 @@
         <%= link_to tag, mixes_all_path(search: tag) %>
       <% end %>
       <%= link_to User.find(mix.user_id).name, user_mixes_path(User.find(mix.user_id)) %>
+      <%= audio_tag(mix.audio_file_url, controls: true, class: 'button') %>
       </p>
     <% end %>
   </div>
