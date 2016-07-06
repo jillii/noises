@@ -1,5 +1,5 @@
 class MixesController < ApplicationController
-  before_filter :authenticate_user!, except: [:all, :index, :download]
+  before_filter :authenticate_user!, except: [:all, :show, :index, :download]
 
   def all
     @visited = Hash.new 
@@ -132,9 +132,11 @@ class MixesController < ApplicationController
   def show
   	@mix = Mix.find(params[:id])
     # remove any notifications about this mix -->
-    if current_user.id == @mix.user_id
-      @mix.notifications.each do |notification|
-        Notification.update(notification, state: 1) # mark all notifications as read
+    if user_signed_in?
+      if current_user.id == @mix.user_id
+        @mix.notifications.each do |notification|
+          Notification.update(notification, state: 1) # mark all notifications as read
+        end
       end
     end
     @mixes = @mix.mixes

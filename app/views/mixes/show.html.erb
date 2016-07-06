@@ -10,7 +10,7 @@
   <% if user_signed_in? %>
     <%= link_to 'download', download_mix_path(@mix) if user_signed_in? %>
     <%= link_to 'mix', new_mix_mix_path(@mix) %>
-    <% if @mix.user_id == current_user.id %>
+    <% if @mix.user_id == current_user %>
       <%= link_to 'edit', edit_mix_path(@mix) %>
       <%= link_to 'delete', mix_path(@mix), method: :delete %>
     <% end %>

@@ -22,25 +22,19 @@ a:hover#menu-icon {
     display: none;
   }
 }
+@media only screen and (max-width : 670px) {
+  span.user-info {
+    display: none;
+  }
+}
 @media only screen and (max-width : 618px) {
   h1.form {
     font-size: 24px;
   }
 }
-@media only screen and (max-width : 480px) {
-  html, 
-  body, 
-  form, 
-  .container {
-    width: 100% !important;
-    margin: 0 auto !important;
-  }
-  /*hide navbar in menu icon*/
+@media only screen and (max-width : 504px) {
   #menu-icon {
     display:inline-block;
-  }
-  span.user-info {
-    display: none;
   }
   .navbar .nav {
     position: absolute;
@@ -48,7 +42,7 @@ a:hover#menu-icon {
   nav ul, nav:active ul { 
     display: none;
     position: absolute;
-    padding: 20px;
+    padding: 10px 2px;
     background: #fff;
     border: 1px solid #444;
     width: 120px;
@@ -64,9 +58,23 @@ a:hover#menu-icon {
     border-left: 2px #333 solid;
     background-color: #fbfbfb;
   }
+  nav li a:hover {
+    text-decoration: none;
+  }
   nav:hover ul {
     display: block;
+    right: 17px;
   }
+}
+@media only screen and (max-width : 480px) {
+  html, 
+  body, 
+  form, 
+  .container {
+    width: 100%;
+    margin: 0 auto !important;
+  }
+  /*hide navbar in menu icon*/
   #user_remember_me {
     position: fixed;
     margin-left: -60px;
@@ -75,14 +83,14 @@ a:hover#menu-icon {
   textarea, 
   input#contact_subject, 
   input#contact_name, 
-  input#conact_email, 
+  input#contact_email, 
   textarea#contact_body,
 	.btn {
 		margin: 4px 0 !important;
 		width: 100% !important;
 		display: block;
-    padding: 0;
-    line-height: 24px;
+    padding: 4px 0 !important;
+    line-height: 28px;
 	}
   button.btn, input[type="submit"].btn {
     display: inline-block;

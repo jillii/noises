@@ -7,7 +7,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag :defaults %>
-  <%= mp3_player_headers %>
   <%= csrf_meta_tags %>
   <!-- favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -27,19 +26,17 @@
   <!-- user navigation bar -->
   <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
 
-  <p class="navbar-text pull-right">
     <!-- display menu link on device -->
-  <div class="navbar navbar-default">
+  <div class="navbar-test pull-right">
     <nav class='nav navbar-nav'>
       <a href="#" id="menu-icon"></a>
         <ul>
           <% if user_signed_in? %>
-            <li><b><%= link_to 'Upload', new_user_mix_path(current_user.id), :class => 'navbar-link' %></b></li>
+            <%= link_to new_user_mix_path(current_user.id) do %><li class='navbar-link'><b>Upload</b></li><% end %>
           <% end %>
-          <li><%= link_to 'Noises!', mixes_all_path, :class => 'navbar-link' %></li>
-          <li><%= link_to 'Users', users_path, :class => 'navbar-link' %></li> 
-          <li><%= link_to 'Contact Jill', new_contact_path, :class => 'navbar-link' %></li> 
-
+          <%= link_to mixes_all_path do %><li class='navbar-link'>Noises!</li><% end %>
+          <%= link_to users_path do %><li class='navbar-link'>Users</li><% end %>
+          <%= link_to new_contact_path do %><li class='navbar-link'>Contact Jill</li><% end %>
           <% if user_signed_in? %>
           <!-- count unread notifications -->
             <% count  = 0 %>
@@ -48,13 +45,13 @@
                 <% count+= 1 %>
               <% end %>
             <% end %>
-            <li><%= link_to 'Notifications ' +  (count if count != 0).to_s, user_notifications_path(current_user), :class => 'navbar-link' %></li>
+            <%= link_to user_notifications_path(current_user) do %><li class='navbar-link'>Notifications <%= puts '(' + (count if count != 0).to_s + ')' %></li><% end %>
             <span class="user-info">You are logged in as <strong><%= current_user.name %></strong>.</span>
-            <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-            <li><%= link_to "logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>    
-            <% else %>
-            <li><%= link_to "Signup", new_user_registration_path, :class => 'navbar-link' %></li>  
-            <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+            <%= link_to edit_user_registration_path do %><li class='navbar-link'>Edit profile</li><% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %><li class='navbar-link'>logout</li><% end %>
+          <% else %>
+            <%= link_to new_user_registration_path do %><li class='navbar-link'>Signup</li><% end %>
+            <%= link_to new_user_session_path do %><li class='navbar-link'>Login</li><% end %>
           <% end %>
         </ul>
       <br>
