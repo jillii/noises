@@ -27,6 +27,4 @@ Rails.application.routes.draw do
   end
   # mailer
   resources :contacts, only: [:index, :new, :create]
-
-
 end
