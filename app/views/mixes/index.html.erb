@@ -21,6 +21,7 @@
     <% if mix.audio_file_url %>
       <%= audio_tag(mix.audio_file, controls: true, class: 'button') %>
       <%= link_to 'download', download_mix_path(mix)%>
+      <%= link_to 'mix', new_mix_mix_path(track) %>
     <% end %>
 
     <% if @user == current_user %>
