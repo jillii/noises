@@ -46,7 +46,7 @@
               <% end %>
             <% end %>
             <%= link_to user_notifications_path(current_user) do %><li class='navbar-link'>Notifications <%= puts '(' + (count if count != 0).to_s + ')' %></li><% end %>
-            <span class="user-info">You are logged in as <strong><%= current_user.name %></strong>.</span>
+            <span class="user-info">You are logged in as <strong><%= link_to current_user.name, user_path(current_user), class: 'navbar-link' %></strong>.</span>
             <%= link_to edit_user_registration_path do %><li class='navbar-link'>Edit profile</li><% end %>
             <%= link_to destroy_user_session_path, method: :delete do %><li class='navbar-link'>logout</li><% end %>
           <% else %>
