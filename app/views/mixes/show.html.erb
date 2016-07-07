@@ -2,7 +2,7 @@
   <p>
   <%= @mix.name %>
   <% if !@mix.audio_file_url.nil? %>
-    <%= audio_tag(@mix.audio_file_url, controls: true, class: 'button') %>
+    <%= audio_tag(@mix.audio_file, controls: true) %>
   <% end %>
   <br>
   Uploaded <%= @mix.created_at %>
@@ -28,7 +28,7 @@
   <div class="remixes">
     <br>
     <br>
-    Remixes:
+    Remixes of <%= @mix.name %>
     <br>
     <br>
     <% @mixes.each do |mix| %>

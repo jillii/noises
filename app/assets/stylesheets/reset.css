@@ -58,12 +58,13 @@ a:hover#menu-icon {
     border-left: 2px #333 solid;
     background-color: #fbfbfb;
   }
-  nav li a:hover {
-    text-decoration: none;
+  nav a:hover {
+    text-decoration: none !important;
   }
   nav:hover ul {
     display: block;
     right: 17px;
+    z-index: 10;
   }
 }
 @media only screen and (max-width : 480px) {
@@ -98,15 +99,18 @@ a:hover#menu-icon {
     text-align: center;
   }
 	button.btn, input[type="search"].btn {
-    width: 30% !important;
+    width: 30px !important;
 	}
+  .icon-search {
+    background-position: -48px 0px;
+  }
+  [class^="icon-"], [class*=" icon-"] {
+    margin-top: -4px;
+  }
 
   h1.form {
-    font-size: 14px !important;
-    line-height: 16px !important;
-  }
-  audio.button {
-    resize: 12px 12px;
+    font-size: 18px !important;
+    line-height: 20px !important;
   }
   .center-block {
     padding: 0 !important;

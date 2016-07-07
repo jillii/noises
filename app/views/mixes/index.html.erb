@@ -19,7 +19,7 @@
     <% end %>
 
     <% if mix.audio_file_url %>
-      <a href="<%= mix.audio_file.url %>">listen</a>
+      <%= audio_tag(mix.audio_file, controls: true, class: 'button') %>
       <%= link_to 'download', download_mix_path(mix)%>
     <% end %>
 
