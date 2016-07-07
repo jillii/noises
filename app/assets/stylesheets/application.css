@@ -162,4 +162,8 @@ button {
 [class^="icon-"], [class*=" icon-"] {
 	margin-left: -4px;
 }
+.instructions {
+	max-width: 400px;
+	float: right;
+}
 
