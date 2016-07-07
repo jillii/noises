@@ -60,7 +60,7 @@ li {
 	border-left: 1px #ccc solid;
 }
 input#contact_name,
-input#contact_subject,
+input#contact_email,
 input#contact_subject,
 textarea#contact_body {
 	width: 260px;
