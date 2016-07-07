@@ -37,8 +37,8 @@
           <%= link_to 'download', download_mix_path(track) %>
           <%= link_to 'mix', new_mix_mix_path(track) %>
           <%= link_to User.find(track.user_id).name, user_mixes_path(track.user_id) if track.user_id  %>
-          </span>
           <%= link_to 'edit', edit_mix_path(track) if track.user == current_user %>
+          </span>
           
           <%= audio_tag(track.audio_file, controls: true, class: 'button') %>
 
