@@ -7,7 +7,6 @@
   member since <div><%= @user.created_at %></div>
 </p>
 <p>
-  <%= mail_to 'email', @user.email if user_signed_in? %>
 <div class='container'>
 <% @mixes.each do |mix| %>
 <!-- view the track -->

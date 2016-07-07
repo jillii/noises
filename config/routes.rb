@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'user_mailers/new'
+
   root to: 'welcome#hi'
 
   # main page
@@ -27,4 +29,5 @@ Rails.application.routes.draw do
   end
   # mailer
   resources :contacts, only: [:index, :new, :create]
+  resources :user_mailers, only: [:index, :new, :create]
 end

@@ -20,9 +20,9 @@
 <h1 class='form'>
   <% if @visited %>
     <% @visited.each do |track, indent| %>
-      <div class="mix">
-        <%= raw(('&nbsp') * indent) %>
-        <% if !track.audio_file_url.empty? %>
+      <% if !track.audio_file_url.nil? %>
+        <div class="mix">
+          <%= raw(('&nbsp') * indent) %>
           <span class="track-name">
             <% if track.name == '<file removed>' %>
               <% next %> <!-- skip to the next iteration -->
@@ -42,8 +42,8 @@
           
           <%= audio_tag(track.audio_file, controls: true, class: 'button') %>
 
+          <br>
         <% end %>
-        <br>
       <% end %>
     </div>
   <% end %>

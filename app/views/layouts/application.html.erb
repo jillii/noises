@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Noises</title>
+  <!-- count unread notifications -->
+  <% if user_signed_in? %>
+    <% count  = 0 %>
+    <% current_user.notifications.each do |notification| %>
+      <% if notification.state == 0 %>
+        <% count+= 1 %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <title>Noises <%= '(' + (count).to_s + ')'  if count != 0 %></title>
   <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
   <link rel="stylesheet" href="reset.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -16,11 +25,11 @@
 </head>
 <body>
   <!-- flash notices -->
-	<% if notice %>
-	  <p class="alert alert-success"><%= notice %></p>
-	<% end %>
-	<% if alert %>
-	  <p class="alert alert-danger"><%= alert %></p>
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
   <% end %>
 
   <!-- user navigation bar -->
@@ -38,14 +47,7 @@
           <%= link_to users_path do %><li class='navbar-link'>Users</li><% end %>
           <%= link_to new_contact_path do %><li class='navbar-link'>Contact Jill</li><% end %>
           <% if user_signed_in? %>
-          <!-- count unread notifications -->
-            <% count  = 0 %>
-            <% current_user.notifications.each do |notification| %>
-              <% if notification.state == 0 %>
-                <% count+= 1 %>
-              <% end %>
-            <% end %>
-            <%= link_to user_notifications_path(current_user) do %><li class='navbar-link'>Notifications <%= puts '(' + (count if count != 0).to_s + ')' %></li><% end %>
+            <%= link_to user_notifications_path(current_user) do %><li class='navbar-link'>Notifications <%= '(' + (count).to_s + ')'  if count != 0 %></li><% end %>
             <span class="user-info">You are logged in as <strong><%= link_to current_user.name, user_mixes_path(current_user), class: 'navbar-link' %></strong>.</span>
             <%= link_to edit_user_registration_path do %><li class='navbar-link'>Edit profile</li><% end %>
             <%= link_to destroy_user_session_path, method: :delete do %><li class='navbar-link'>logout</li><% end %>

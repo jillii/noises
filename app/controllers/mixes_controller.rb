@@ -1,6 +1,5 @@
 class MixesController < ApplicationController
   before_filter :authenticate_user!, except: [:all, :show, :index, :download]
-
   def all
     @visited = Hash.new 
     if params[:search]  
@@ -82,9 +81,13 @@ class MixesController < ApplicationController
     @mix.user_id = current_user.id
     # assign the mix_id as the id of the original mix
     @mix.update(mix_id: @original_mix.id)
+    
+    @user = User.find(@original_mix.user_id)
+    @link = mix_url(@original_mix)
 
     if @mix.save
       Notification.create(user_id: @original_mix.user_id, mix_id: @original_mix.id, state: 0) # Create notification for creator of original mix
+      UserMailer.mail_user(@user, @link).deliver                                               # email content creator
       redirect_to mixes_all_path, notice: 'Mix uploaded.'
     else
       redirect_to new_mix_path(@original_mix), alert: 'Mix could not be uploaded.'
