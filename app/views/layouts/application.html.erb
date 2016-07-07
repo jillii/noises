@@ -2,8 +2,8 @@
 <html>
 <head>
   <!-- count unread notifications -->
+  <% count  = 0 %>
   <% if user_signed_in? %>
-    <% count  = 0 %>
     <% current_user.notifications.each do |notification| %>
       <% if notification.state == 0 %>
         <% count+= 1 %>

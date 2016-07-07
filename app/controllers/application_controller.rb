@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
  
   # redirect user to current path after signup
   before_filter :store_location
-
+  
   def store_location
     # store last url - this is needed for post-login redirect to whatever the user last visited.
     return unless request.get? 
