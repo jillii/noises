@@ -57,6 +57,10 @@ a:hover#menu-icon {
   nav li:hover {
     border-left: 2px #333 solid;
     background-color: #fbfbfb;
+  }  
+  nav li:active {
+    border-left: 2px #333 solid;
+    background-color: #fbfbfb;
   }
   nav a:hover {
     text-decoration: none !important;
