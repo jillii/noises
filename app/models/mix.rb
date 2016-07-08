@@ -11,7 +11,7 @@ class Mix < ActiveRecord::Base
   ActsAsTaggableOn.remove_unused_tags = true
   ActsAsTaggableOn.force_lowercase = true
   # validators
-  # validates :audio_file, presence: { message: "You forgot an attachment." }
+  validates :audio_file, presence: { message: "You forgot an attachment." }
   # search by names
 	def self.search(search)
 	  where("lower(name) LIKE ? ", "%#{search.downcase}%")
