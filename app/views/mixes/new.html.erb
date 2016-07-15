@@ -5,9 +5,9 @@
   <div>
     <!-- changed from @track to @user -->
     <%= form_for [@user, @mix], html: { multipart: true } do |f| %>
-      <%= f.text_field :name, placeholder: 'name' %>
+      <%= f.text_field :name, placeholder: 'name', onclick: "this.placeholder = ''", onblur: "this.placeholder = 'name'" %>
       <br>
-      <%= f.text_field :tag_list, placeholder: 'tags (separated by commas)' %>
+      <%= f.text_field :tag_list, placeholder: 'tags (separated by commas)', onclick: "this.placeholder = ''", onblur: "this.placeholder = 'tags (separated by commas)'" %>
       <br>
       <%= f.file_field :audio_file %>
       <br>
