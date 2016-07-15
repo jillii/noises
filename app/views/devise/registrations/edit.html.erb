@@ -4,11 +4,11 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.text_field :name, autofocus: true, placeholder: 'name' %>
+    <%= f.text_field :name, autofocus: true, placeholder: 'name', onclick: "this.placeholder = ''", onblur: "this.placeholder = 'name'" %>
   </div>  
 
   <div class="field">
-    <%= f.email_field :email, autofocus: true, placeholder: 'email' %>
+    <%= f.email_field :email, autofocus: true, placeholder: 'email', onclick: "this.placeholder = ''", onblur: "this.placeholder='email'" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -17,16 +17,16 @@
 
   <div class="field">
     <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off", placeholder: 'password' %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: 'password', onclick: "this.placeholder = ''", onblur: "this.placeholder='password'" %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'confirm' %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'confirm', onclick: "this.placeholder = ''", onblur: "this.placeholder='confirm'" %>
   </div>
 
   <div class="field">
     <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off", placeholder: 'current_password' %>
+    <%= f.password_field :current_password, autocomplete: "off", placeholder: 'current password', onclick: "this.placeholder = ''", onblur: "this.placeholder='current password'" %>
   </div>
 
   <div class="actions">
