@@ -58,7 +58,7 @@ a:hover#menu-icon {
     border-left: 2px #333 solid;
     background-color: #fbfbfb;
   }  
-  nav li:active {
+  nav li:visited {
     border-left: 2px #333 solid;
     background-color: #fbfbfb;
   }
@@ -94,7 +94,7 @@ a:hover#menu-icon {
 		margin: 4px 0 !important;
 		width: 100% !important;
 		display: block;
-    padding: 4px 0 !important;
+    padding: 4px !important;
     line-height: 28px;
 	}
   button.btn, input[type="submit"].btn {
