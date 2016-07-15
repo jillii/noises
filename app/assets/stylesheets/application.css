@@ -127,6 +127,10 @@ ul.notification li a:hover {
 	width: 90%;
 	margin: 0 2.2em;
 }
+.instructions {
+  width: 350px;
+  float: right;
+}
 .btn .btn-default {
   background: #ff0;
   -webkit-border-radius: 0;
