@@ -10,6 +10,13 @@ a:hover#menu-icon {
   background-color: #444;
   border-radius: 1px 4px 0 0;
 }
+#user_remember_me {
+  position: absolute;
+}  
+label {
+  position: relative;
+  left: 1.4em;
+}
 
 /*smaller port width*/
 @media only screen and (max-width : 840px) {
@@ -78,11 +85,6 @@ a:hover#menu-icon {
   .container {
     width: 100%;
     margin: 0 auto !important;
-  }
-  /*hide navbar in menu icon*/
-  #user_remember_me {
-    position: fixed;
-    margin-left: -60px;
   }
   input, 
   textarea, 
