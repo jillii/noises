@@ -2,10 +2,10 @@
 <br>
 <%= form_for @contact do |f| %>
   <% if !user_signed_in? %>
-    <%= f.text_field :name, placeholder: "name" %></br>
-    <%= f.email_field :email, placeholder: "email" %></br>
+    <%= f.text_field :name, placeholder: "name", onclick: "this.placeholder = ''", onblur: "this.placeholder = 'name'" %></br>
+    <%= f.email_field :email, placeholder: "email", onclick: "this.placeholder = ''", onblur: "this.placeholder = 'email'" %></br>
   <% end %>
-  <%= f.text_field :subject, placeholder: "subject" %></br>
-  <%= f.text_area :body, placeholder: "message", :rows => '6', :cols => '26', required: true %></br>
+  <%= f.text_field :subject, placeholder: "subject", onclick: "this.placeholder = ''", onblur: "this.placeholder = 'subject'" %></br>
+  <%= f.text_area :body, placeholder: "message", :rows => '6', :cols => '26', required: true, onclick: "this.placeholder = ''", onblur: "this.placeholder = 'message'" %></br>
   <%= f.submit "Send", class: 'btn' %>
 <% end %>
